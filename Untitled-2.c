@@ -1,23 +1,14 @@
-void reverse(int *nums,int start,int end)
-{
-    while(start < end)
+void sortColors(int* nums, int numsSize) {
+    for(int i=0;i<numsSize;i++)
     {
-        int temp=nums[start];
-        nums[start]=nums[end];
-        nums[end]=temp;
-        start++;
-        end--;
+        for(int j=i+1;j<numsSize;j++)
+        {
+            if (nums[i] > nums[j]) {
+            int temp=nums[i];
+            nums[i]=nums[j];
+            nums[j]=temp;
+            }
+        }
     }
-}
-void rotate(int* nums, int numsSize, int k) {
-    if(numsSize==0) return ;
-    k=k % numsSize;
-    if(k==0)
-    {
-        return ;
-    }
-    int someMid=numsSize-k;
-    reverse(nums,0,someMid-1);
-    reverse(nums,someMid,numsSize-1);
-    reverse(nums,0,numsSize-1);
+    return;
 }
